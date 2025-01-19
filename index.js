@@ -521,7 +521,7 @@ function generateArticleHtml(article, index) {
 <body>
     <div class="container">
         <header>
-            <h1><a href="archive.html">CEMERS PHOTOBLOG</a></h1>
+            <h1><a href="./index.html">CEMERS PHOTOBLOG</a></h1>
         </header>
 
         <article class="article">
@@ -558,7 +558,7 @@ function generateArticleHtml(article, index) {
             </div>
 
             <div class="article-footer">
-                <a href="archive.html">← Zurück zur Übersicht</a>
+                <a href="index.html">← Zurück zur Übersicht</a>
             </div>
         </article>
     </div>
@@ -925,8 +925,15 @@ function generateHtml() {
 </body>
 </html>`;
 
-  fs.writeFileSync('output/archive.html', indexHtml);
-  console.log(chalk.green('Generated archive.html and article pages'));
+  fs.writeFileSync('output/index.html', indexHtml);
+
+  // Generate individual article pages
+  articles.forEach((article, index) => {
+    const articleHtml = generateArticleHtml(article, index);
+    fs.writeFileSync(`output/article-${index + 1}.html`, articleHtml);
+  });
+
+  console.log(chalk.green('Generated index.html and article pages'));
 }
 
 async function main() {
@@ -938,7 +945,7 @@ async function main() {
   }
 
   await updateArticlesWithDetails(forceReExtract);
-  await downloadAllImages();
+  // await downloadAllImages();
   await generateHtml();
 }
 
