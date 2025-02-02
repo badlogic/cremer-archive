@@ -521,7 +521,7 @@ function generateArticleHtml(article, index) {
 <body>
     <div class="container">
         <header>
-            <h1><a href="./index.html">CEMERS PHOTOBLOG</a></h1>
+            <h1><a href="./index.html">CREMERS PHOTOBLOG</a></h1>
         </header>
 
         <article class="article">
@@ -648,7 +648,7 @@ function generateHtml() {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CEMERS PHOTOBLOG</title>
+    <title>CREMERS PHOTOBLOG</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -839,7 +839,7 @@ function generateHtml() {
 <body>
     <div class="container">
         <header>
-            <h1>CEMERS PHOTOBLOG</h1>
+            <h1>CREMERS PHOTOBLOG</h1>
         </header>
 
         <div class="search-container">
@@ -945,7 +945,7 @@ async function main() {
   }
 
   await updateArticlesWithDetails(forceReExtract);
-  // await downloadAllImages();
+  await downloadAllImages();
   await generateHtml();
 }
 
